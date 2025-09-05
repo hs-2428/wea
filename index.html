@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Weather & Alert Dashboard</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Smart Weather & Alert Dashboard</h1>
+            <button id="theme-toggle" class="theme-toggle">🌙</button>
+        </header>
+        
+        <div class="search-section">
+            <div class="search-container">
+                <input type="text" id="city-input" placeholder="Enter city name" autocomplete="off">
+                <div id="search-dropdown" class="search-dropdown hidden"></div>
+            </div>
+            <button id="search-btn">Get Weather</button>
+        </div>
+        
+        <div class="main-content">
+            <div class="left-panel">
+                <div id="alerts" class="alerts"></div>
+                <div id="current-weather" class="weather-section"></div>
+            </div>
+            
+            <div class="right-panel">
+                <div id="city-comparison" class="comparison-section">
+                    <h3>🏙️ Compare Cities</h3>
+                    <div class="comparison-controls">
+                        <input type="text" id="compare-input" placeholder="Add city to compare">
+                        <button id="add-compare-btn">Add</button>
+                        <button id="clear-compare-btn" class="clear-btn">Clear All</button>
+                    </div>
+                    <div id="comparison-grid" class="comparison-grid"></div>
+                </div>
+                <div id="forecast" class="forecast-section"></div>
+            </div>
+        </div>
+        
+        <div id="map" class="map-section" style="height: 300px; margin-top: 20px;"></div>
+    </div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
