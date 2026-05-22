@@ -4,7 +4,7 @@ A modern, responsive weather dashboard that provides real-time weather informati
 
 ## 🚀 Live Demo
 
-Visit the live demo: [Weather Dashboard](https://your-username.github.io/smart-weather-dashboard)
+Visit the live demo: [Weather Dashboard](https://hs-2428.github.io/wea/)
 
 ## ✨ Features
 
