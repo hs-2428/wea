@@ -4,7 +4,13 @@ A modern, responsive weather dashboard that provides real-time weather informati
 
 ## 🚀 Live Demo
 
-Visit the live demo: [Weather Dashboard](https://hs-2428.github.io/wea/)
+**🌐 Try it now:** [https://itsharsh007.github.io/wea](https://itsharsh007.github.io/wea)
+
+## 📸 Screenshots
+
+| Light mode | Dark mode |
+|---|---|
+| ![Light mode dashboard showing current weather, city comparison, 5-day forecast, and map](screenshots/light-mode.png) | ![Dark mode dashboard showing the same view with the dark theme toggled on](screenshots/dark-mode.png) |
 
 ## ✨ Features
 
@@ -30,74 +36,54 @@ Visit the live demo: [Weather Dashboard](https://hs-2428.github.io/wea/)
 - **Maps**: Leaflet.js with OpenStreetMap
 - **API**: OpenWeatherMap API
 - **Storage**: LocalStorage for theme preferences
-- **Design**: Custom CSS with animations and gradients
+- **Design**: Custom CSS with subtle depth, smooth transitions, and a light/dark theme system
 
-## � Quick Start
+## 🚀 Quick Start
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/smart-weather-dashboard.git
-cd smart-weather-dashboard
+git clone https://github.com/itsharsh007/wea.git
+cd wea
 ```
 
-### 2. Get API Key
-1. Sign up at [OpenWeatherMap](https://openweathermap.org/api)
-2. Get your free API key
-3. Replace `YOUR_API_KEY` in `script.js` with your actual key:
-```javascript
-const apiKey = 'your_actual_api_key_here';
-```
-
-### 3. Run Locally
+### 2. Run Locally
 Simply open `index.html` in your browser or use a local server:
 ```bash
 # Using Python
-python -m http.server 8000
+python3 -m http.server 8000
 
 # Using Node.js
 npx serve .
-
-# Using Live Server (VS Code extension)
-# Right-click index.html → "Open with Live Server"
 ```
+
+The app ships with a working OpenWeatherMap key in `script.js` for demo purposes — no setup needed to try it locally.
 
 ## 📁 Project Structure
 
 ```
-smart-weather-dashboard/
+wea/
 ├── index.html          # Main HTML structure
-├── style.css          # Styling and responsive design
-├── script.js          # JavaScript functionality
-├── README.md          # Project documentation
-└── .gitignore         # Git ignore rules
+├── style.css            # Styling, theming, and responsive design
+├── script.js            # JavaScript functionality
+├── screenshots/          # README screenshots
+├── README.md             # Project documentation
+└── .gitignore            # Git ignore rules
 ```
 
 ## 🔧 Configuration
 
-### API Key Setup
-```javascript
-// In script.js, line 2
-const apiKey = 'your_openweathermap_api_key';
-```
-
 ### Customization Options
 - **Units**: Change between metric/imperial in `script.js`
 - **City List**: Modify `popularCities` array for different suggestions
-- **Theme Colors**: Update CSS variables in `style.css`
+- **Theme Colors**: Update the CSS variables at the top of `style.css`
 - **Alert Thresholds**: Adjust temperature/wind limits in `displayAlerts()`
 
 ## 🌐 Deployment
 
-### GitHub Pages
-1. Push your code to GitHub
-2. Go to repository Settings → Pages
-3. Select source: Deploy from branch `main`
-4. Your site will be available at: `https://username.github.io/repository-name`
-
-### Other Platforms
+Deployed via **GitHub Pages** directly from the `main` branch (see the Live Demo link above). To redeploy elsewhere:
 - **Netlify**: Drag and drop the folder
-- **Vercel**: Connect GitHub repository
-- **Firebase Hosting**: Use Firebase CLI
+- **Vercel**: Connect the GitHub repository
+- **Firebase Hosting**: Use the Firebase CLI
 
 ## 📱 Browser Support
 
@@ -109,10 +95,8 @@ const apiKey = 'your_openweathermap_api_key';
 
 ## 🔒 Privacy & Security
 
-- API key is exposed in frontend (for demo purposes)
-- For production, consider using a backend proxy
-- No personal data is stored or transmitted
-- Only city names are cached locally for theme preferences
+- The API key in `script.js` is intentionally public/demo-scoped for this project — this is a static site with no backend, so there's nowhere to hide it. Don't reuse this pattern for a key you need to keep private.
+- No personal data is stored or transmitted; only city names/theme preference are cached locally in the browser.
 
 ## 🤝 Contributing
 
@@ -131,21 +115,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [OpenWeatherMap](https://openweathermap.org/) for weather data API
 - [Leaflet.js](https://leafletjs.com/) for interactive maps
 - [OpenStreetMap](https://www.openstreetmap.org/) for map tiles
-- Icons and emojis for enhanced UX
-
-## � Support
-
-If you encounter any issues or have questions:
-1. Check the [Issues](https://github.com/your-username/smart-weather-dashboard/issues) page
-2. Create a new issue with detailed description
-3. Contact: your-email@example.com
-
-## 🔄 Version History
-
-- **v1.0.0** - Initial release with core features
-- **v1.1.0** - Added dark theme and city comparison
-- **v1.2.0** - Implemented search suggestions and improved UX
-
----
-
-Made with ❤️ for weather enthusiasts worldwide 🌍

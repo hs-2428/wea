@@ -134,9 +134,19 @@ async function getWeatherDashboard(city) {
     }
 }
 
+// Purely cosmetic: maps the condition text the API already returns to an emoji glyph
+function weatherIcon(main) {
+    const icons = {
+        Clear: '☀️', Clouds: '☁️', Rain: '🌧️', Drizzle: '🌦️',
+        Thunderstorm: '⛈️', Snow: '❄️', Mist: '🌫️', Fog: '🌫️',
+        Haze: '🌫️', Smoke: '🌫️', Dust: '🌫️', Sand: '🌫️', Tornado: '🌪️'
+    };
+    return icons[main] || '🌡️';
+}
+
 function displayCurrentWeather(data) {
     currentWeatherDiv.innerHTML = `
-        <h2>Current Weather in ${data.name}, ${data.sys.country}</h2>
+        <h2>${weatherIcon(data.weather[0].main)} Current Weather in ${data.name}, ${data.sys.country}</h2>
         <div>Temperature: <b>${data.main.temp}${temperatureSymbol}</b></div>
         <div>Humidity: <b>${data.main.humidity}%</b></div>
         <div>Wind Speed: <b>${data.wind.speed} km/h</b></div>
@@ -157,13 +167,13 @@ function displayForecast(data) {
     });
     // Only show next 5 days
     const dayKeys = Object.keys(days).slice(0, 5);
-    forecastDiv.innerHTML = '<h2>5-Day Forecast</h2>';
+    forecastDiv.innerHTML = '<h2>📅 5-Day Forecast</h2>';
     dayKeys.forEach(date => {
         // Get midday forecast for each day
         const midday = days[date][Math.floor(days[date].length/2)];
         forecastDiv.innerHTML += `
             <div class="forecast-day">
-                <b>${date}</b>: ${midday.main.temp}${temperatureSymbol}, ${midday.weather[0].main}
+                ${weatherIcon(midday.weather[0].main)} <b>${date}</b>: ${midday.main.temp}${temperatureSymbol}, ${midday.weather[0].main}
             </div>
         `;
     });
@@ -183,7 +193,7 @@ function displayAlerts(current, forecast) {
     if (forecast.list.some(item => item.wind.speed > 13.8) || current.wind.speed > 13.8) { // 13.8 m/s ≈ 50 km/h
         alerts.push('High winds warning 🌪');
     }
-    alertsDiv.innerHTML = alerts.length ? alerts.map(a => `<div class="alert">${a}</div>`).join('') : '<div>No alerts</div>';
+    alertsDiv.innerHTML = alerts.length ? alerts.map(a => `<div class="alert">${a}</div>`).join('') : '<div style="text-align:center;color:var(--muted,#667085);font-size:0.9rem;">✅ No weather alerts right now</div>';
 }
 
 function showMap(lat, lon, city) {
